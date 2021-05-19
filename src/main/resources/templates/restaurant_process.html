@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css" media="screen" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Playball}" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{css/style-portfolio.css}">
+    <link rel="stylesheet" th:href="@{css/picto-foundry-food.css}" />
+    <link rel="stylesheet" th:href="@{css/jquery-ui.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{css/login.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{favicon-1.ico}" type="image/x-icon">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="row">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Restaurant</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav main-nav  clear navbar-right ">
+                    <li><a class="navactive color_animation" href="#top">WELCOME</a></li>
+                    <li><a class="color_animation" href="#">ABOUT</a></li>
+                    <li><a class="color_animation" href="#">ADMIN</a></li>
+                    <li class="dropdown"><a  class="color_animation" href="#beer">RESTAURANT</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Register an account</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a  class="color_animation" href="#bread">CUSTOMER</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Register an account</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="color_animation" href="#featured">FEATURED</a></li>
+                    <li><a class="color_animation" href="#reservation">RESERVATION</a></li>
+                    <li><a class="color_animation" th:href="@{/error}">CONTACT</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="top" class="starter_container bg">
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
+                        <div class="sign-in-htm">
+                            <form th:action="@{/loginProcess}" th:object="${login}" method="POST">
+                                <div class="group">
+                                    <label for="user" class="label">Email</label>
+                                    <input id="user" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password">
+                                </div>
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign In">
+                                </div>
+                                <div class="hr">
+
+                                </div>
+                                <div class="foot-lnk">
+                                     <a href="#forgot">Forgot Password?</a>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="sign-up-htm">
+                            <form th:action="@{/restaurant_process}" th:object="${restaurant}" method="POST">
+                                <div class="group">
+                                    <label for="user" class="label">Restaurant</label>
+                                    <input id="user" th:field="*{restaurantName}" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Phone Number</label>
+                                    <input id="pass" th:field="*{phoneNumber}" type="text" class="input" data-type="password">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Email Address</label>
+                                    <input id="pass" th:field="*{email}" type="text" class="input" data-type="password">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Website</label>
+                                    <input id="pass" th:field="*{website}" type="text" class="input" data-type="password">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">First Name</label>
+                                    <input id="pass" th:field="*{firstName}" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Last Name</label>
+                                    <input id="pass" th:field="*{lastName}" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Location</label>
+                                    <input id="pass" th:field="*{location}" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Sign Up">
+                                </div>
+                                <div class="hr"></div>
+                                <div class="foot-lnk">
+                                    <label for="tab-1">Already Member?</a> </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+    </div>
+</div>
+
+
+<!-- ============ Footer Section  ============= -->
+
+<footer class="sub_footer">
+    <div class="container">
+        <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Restaurant 2014, Theme by <a href="https://themewagon.com/">ThemeWagon</a></p></div>
+        <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
+        </div>
+        <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"> </script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.min.js" ></script>
+<script type="text/javascript" src="js/main.js" ></script>
+
+</body>
+</html>
