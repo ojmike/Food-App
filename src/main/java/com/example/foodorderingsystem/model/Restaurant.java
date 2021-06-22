@@ -27,6 +27,9 @@ public class Restaurant {
     @Column(name = "email", nullable = false, columnDefinition = "VARCHAR(45)")
     private String email;
 
+    @Column(name = "password", nullable = false, columnDefinition = "VARCHAR(45)")
+    private String password;
+
     @Column(name = "website", nullable = false, columnDefinition = "VARCHAR(45)")
     private String website;
 

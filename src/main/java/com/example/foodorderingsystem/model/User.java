@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.criteria.Order;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -15,9 +18,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Table(name="users")
 public class User {
     @Id
-
-    @GeneratedValue(strategy  = SEQUENCE)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "firstName", nullable = false, columnDefinition = "VARCHAR(45)")
@@ -34,4 +35,7 @@ public class User {
 
     @Column(name = "address", nullable = false, columnDefinition = "VARCHAR(45)")
     private String address;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Cart> cart;
 }

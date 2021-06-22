@@ -68,14 +68,14 @@
                     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
                     <div class="login-form">
                         <div class="sign-in-htm">
-                            <form th:action="@{/loginProcess}" th:object="${login}" method="POST">
+                            <form th:action="@{/restaurantloginProcess}" th:object="${restaurant}" method="POST">
                                 <div class="group">
                                     <label for="user" class="label">Email</label>
-                                    <input id="user" type="text" class="input">
+                                    <input id="user" th:field="*{email}" type="text" class="input">
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password">
+                                    <input id="pass" th:field="*{password}" type="password" class="input" data-type="password">
                                 </div>
                                 <div class="group">
                                     <input id="check" type="checkbox" class="check" checked>
@@ -94,34 +94,38 @@
                         </div>
 
                         <div class="sign-up-htm">
-                            <form th:action="@{/restaurant_process}" th:object="${restaurant}" method="POST">
+                            <form th:action="@{/process_restaurant_registration}" th:object="${restaurant}" method="POST">
                                 <div class="group">
                                     <label for="user" class="label">Restaurant</label>
                                     <input id="user" th:field="*{restaurantName}" type="text" class="input">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Phone Number</label>
-                                    <input id="pass" th:field="*{phoneNumber}" type="text" class="input" data-type="password">
+                                    <label for="user" class="label">Phone Number</label>
+                                    <input id="user" th:field="*{phoneNumber}" type="text" class="input" >
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Email Address</label>
-                                    <input id="pass" th:field="*{email}" type="text" class="input" data-type="password">
+                                    <input id="pass" th:field="*{email}" type="text" class="input">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Website</label>
-                                    <input id="pass" th:field="*{website}" type="text" class="input" data-type="password">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" th:field="*{password}"type="password" class="input" data-type="password">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">First Name</label>
-                                    <input id="pass" th:field="*{firstName}" type="text" class="input">
+                                    <label for="user" class="label">Website</label>
+                                    <input id="user" th:field="*{website}" type="text" class="input">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Last Name</label>
-                                    <input id="pass" th:field="*{lastName}" type="text" class="input">
+                                    <label for="user" class="label">First Name</label>
+                                    <input id="user" th:field="*{firstName}" type="text" class="input">
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Location</label>
-                                    <input id="pass" th:field="*{location}" type="text" class="input">
+                                    <label for="user" class="label">Last Name</label>
+                                    <input id="user" th:field="*{lastName}" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="user" class="label">Location</label>
+                                    <input id="user" th:field="*{location}" type="text" class="input">
                                 </div>
                                 <div class="group">
                                     <input type="submit" class="button" value="Sign Up">

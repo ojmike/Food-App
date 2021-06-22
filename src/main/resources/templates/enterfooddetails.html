@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container bootstrap snippets bootdey">
+    <h1 class="text-primary"><span class="glyphicon glyphicon-user"></span>Edit Profile</h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                <h6>Upload a different photo...</h6>
+
+                <input type="file" class="form-control">
+            </div>
+        </div>
+
+        <!-- edit form column -->
+            <h3>Food info</h3>
+
+            <form th:action="@{/save_food}" th:object="${food}" method="POST" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Food name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" th:field="*{name}" type="text" value="dey-dey">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Food description:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" th:field="*{description}" type="text" value="bootdey">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Food price:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" th:field="*{price}" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"></label>
+                    <div class="group">
+                        <input type="submit" class="button" value="Save Food">
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+</body>
+</html>
